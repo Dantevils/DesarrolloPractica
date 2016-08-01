@@ -17,36 +17,6 @@
         <!-- Main content -->
         <section class="content">
 
-            <!-- SELECT2 EXAMPLE -->
-        <!--Busqueda y boton-->
-            <!-- general form elements -->
-           <!-- <div class="box box-primary">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Seccion de busqueda</h3>
-                </div>
-                <!-- /.box-header
-                <!-- form start --
-                <form role="form">
-                    <div class="box-body">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Ingresar numero de partida</label>
-                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Numero de partida">
-                        </div>
-                    </div>
-                    <!-- /.box-body --
-
-                    <div class="box-footer">
-                        <button type="submit" class="btn btn-primary">Enviar Consulta</button>
-                    </div>
-                </form>
-            </div>-->
-            <!-- /.box -->
-
-
-            <!--Tabla de pedidos-->
-
-
-
                     <div class="box">
                         <div class="box-header">
                             <h3 class="box-title">Nuevo Pedido</h3>
@@ -66,7 +36,7 @@
                                 <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>SubPartida</th>
+                                    <th>Partida</th>
                                     <th>Fecha Inicio</th>
                                     <th>Fecha Termino</th>
                                     <th>Precio</th>
@@ -78,41 +48,29 @@
                                 <tbody>
                                 @foreach($subpartida as $subpartida)
                                     <tr>
-                                        <!--<td><a href="{url('prueba')}}"><span>{$subpartida->sub_id}}</span></a></td>-->
                                         <td><a href="{{url('cubicacion',$subpartida->sub_id  )}}"><span>{!! $subpartida->sub_id!!}</span></a></td>
                                         <td>{{$subpartida->sub_nombre}}</td>
                                         <td>{{$subpartida->sub_fechaini}}</td>
-                                        <td>{{$subpartida->sub_fechater}}</td>
+                                        <td>{{$subpartida->sub_fechaini}}</td> {{--$subpartida->sub_fechaini--}}
                                         <td>{{$subpartida->sub_precio}}</td>
                                         <td>{{$subpartida->sub_cantidad}}</td>
                                         <td>{{$subpartida->sub_um}}</td>
                                         <td><a href="{{url('cubicacion',$subpartida->sub_id  )}}"><span class="label label-success">Ir</span></a></td>
-                                        <!-- <td>{}}</td>-->
-                                        <!-- href="{$subpartida->sub_id}}<td><span class="label label-warning">Pending</span></td>
-                                         <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                    --></tr>
 
+                                    </tr>
                                 @endforeach
-
                                 </tfoot>
                             </table>
                         </div>
                         <!-- /.box-body -->
                     </div>
-
                     <!-- /.box -->
+                <div>
+                    {!! Form::open(array('url' => 'foo/bar')) !!}
 
+                    {!! Form::close() !!}
+                </div>
 
-
-
-
-
-
-
-
-
-{{--$cc}}
-            {{$user--}}
             @yield('main-content')
 
         </section><!-- /.content -->

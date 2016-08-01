@@ -84,7 +84,7 @@ class NuevopedidoController extends Controller {
 	public function show($cub_id)
 	{
 		
-		return view('partials.cubicacion',['cubicacion'=>Cubicacion::find($cub_id)]);
+		return view('partials.cubicacion',['cubicacion'=>Cubicacion::find($cub_id),'subpartida'=>Subpartida::find($cub_id)]);
 
 	}
 

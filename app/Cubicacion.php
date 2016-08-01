@@ -7,6 +7,7 @@ class Cubicacion extends Model {
 	//Modelo conectado a cubicacion
     protected $table = 'cubicacion';
 
+    //Modelo 
     protected $primaryKey = 'cub_id';
     /*Campo de uso */
 

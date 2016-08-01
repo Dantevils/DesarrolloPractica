@@ -5,77 +5,98 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
+use App\Cubicacion;
+use App\Traza_movimiento;
+use App\Partida;
+
 class CubicacionController extends Controller {
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
+
 	public function index()
 	{
 	//	return view('partials.nuevopedido',['coc'=>Centro_costo::all(),'user' => User::all(),'subpartida'=>Subpartida::all()]);
+	  return view('home');
 	}
 
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
+
 	public function create()
 	{
-		//
+
 	}
 
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
+
+
 	public function store()
 	{
-		//
+		// validate
+		// read more on validation at http://laravel.com/docs/validation
+		//$rules = array(
+		//'name' => 'required',
+		//'email' => 'required|email',
+		//'nerd_level' => 'required|numeric'
+		//);
+		//$validator = Validator::make(Input::all(), $rules);
+
+		// process the login
+		//if ($validator->fails()) {
+			//return Redirect::to('nerds/create')
+			//	->withErrors($validator)
+			//	->withInput(Input::except('password'));
+		//} else {
+			// store
+
+		/*Consultar si estan editados o no*/
+		/*Consultar si pertenecesn*/
+		$cubicacion = new Cubicacion();
+		$cubicacion->cub_material = Input::get('name');
+		$cubicacion->cub_um = Input::get('email');
+		$cubicacion->cub_cantidad = Input::get('nerd_level');
+		$cubicacion->save();
+
+
+		$traza_movimiento = new Traza_movimiento();
+		$traza_movimiento->tra_sub = Partida::find($cubicacion->par_id);
+		$traza_movimiento->tra_materiales = Input::get('name');
+		$traza_movimiento->tra_um = Input::get('email');
+		$traza_movimiento->tra_cantidad = Input::get('nerd_level');
+		$traza_movimiento->tra_fechasugerida = Input::get('nerd_level');
+		$traza_movimiento->save();
+
+		//Prueba para crear un material en la cubicacion
+		$cubicacion2 = new Cubicacion();
+		$cubicacion2->cub_id = 2;
+		$cubicacion2->cub_matetial = 'Material2';
+		$cubicacion2->cub_um = 'Litros';
+		$cubicacion2->cub_cantidad = 100;
+		$cubicacion2->save();
+
+		// Redireccionar
+		Session::flash('message', 'Pedido Guardadado!');
+		return Redirect::to('home');/*a la misma tabla de cubicacion*/
+
+		//}
+
 	}
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
+
 	public function show($id)
 	{
 		
 	}
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
+
 	public function edit($id)
 	{
 		//
 	}
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
+
 	public function update($id)
 	{
 		//
 	}
 
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
+
 	public function destroy($id)
 	{
 		//

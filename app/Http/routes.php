@@ -28,3 +28,5 @@ Route::get('prueba','PruebaController@index');
 Route::get('nuevopedido','NuevopedidoController@index');
 
 Route::get('cubicacion/{cub_id}','NuevopedidoController@show');
+
+Route::get('estadodepedido','EstadodepedidoController@index');
