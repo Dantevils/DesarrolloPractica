@@ -3,11 +3,13 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Subpartida;
 use Illuminate\Http\Request;
 
 use App\Cubicacion;
 use App\Traza_movimiento;
 use App\Partida;
+use App\Tiene;
 
 class CubicacionController extends Controller {
 
@@ -71,7 +73,7 @@ class CubicacionController extends Controller {
 		$cubicacion2->save();
 
 		// Redireccionar
-		Session::flash('message', 'Pedido Guardadado!');
+		Session::flash('message', 'pedido Guardadado!');
 		return Redirect::to('home');/*a la misma tabla de cubicacion*/
 
 		//}
@@ -81,7 +83,11 @@ class CubicacionController extends Controller {
 
 	public function show($id)
 	{
-		
+		$cub = new Cubicacion();
+		$subp = new Subpartida();
+		$data = Subpartida::find($id)->Subpartida_Cubicacion();
+		return view('partials.pedido.cubicacion',
+			['cub'=>$cub::all(),'subp'=>$subp::find($id)->Subpartida_Cubicacion(),'data'=>$data]);
 	}
 
 

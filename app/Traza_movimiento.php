@@ -5,7 +5,8 @@ use Illuminate\Database\Eloquent\Model;
 class Traza_movimiento extends Model {
 
     //Modelo conectado a traza_moviemiento
-
+    protected $primaryKey ='tra_id';
+    
     protected $table = 'traza_movimiento';
     //protected $primaryKey = 'tra_id';
     /*Campo de uso */

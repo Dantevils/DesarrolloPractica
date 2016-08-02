@@ -9,33 +9,29 @@ use App\Centro_costo;
 use App\Subpartida;
 use App\Cubicacion;
 use App\Traza_movimiento;
+use App\Tiene;
+use phpDocumentor\Reflection\Types\This;
+
 class NuevopedidoController extends Controller {
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
 	public function index()
 	{
-		return view('partials.nuevopedido',['coc'=>Centro_costo::all(),'user' => User::all(),'subpartida'=>Subpartida::all()]);
+		$coc = new Centro_costo();
+		$user =  new User();
+		$subpartida = new Subpartida();
+		$tiene = new Tiene();
+	return view('partials.pedido.nuevopedido',
+		['coc'=>$coc::all(),
+		'user'=>$user::all(),
+		'subpartida'=>$subpartida::all(),
+		'tiene'=>$tiene::all()]);
 	}
 
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
 	public function create()
 	{
 		//
 	}
 
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
 	public function store()
 	{
 		$rules = array(
@@ -75,47 +71,28 @@ class NuevopedidoController extends Controller {
 		//
 	}
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
+
 	public function show($cub_id)
 	{
-		
-		return view('partials.cubicacion',['cubicacion'=>Cubicacion::find($cub_id),'subpartida'=>Subpartida::find($cub_id)]);
-
+		$cub = new Cubicacion();
+		$mov = new Traza_movimiento();
+		return view('partials.cubicacion',['cubicacions'=>$mov::all()]);
+		//$mov = new Traza_movimiento();
 	}
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
+	
 	public function edit($id)
 	{
 		//
 	}
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
+	
 	public function update($id)
 	{
 		//
 	}
 
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
+	
 	public function destroy($id)
 	{
 		//

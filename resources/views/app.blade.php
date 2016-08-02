@@ -30,9 +30,9 @@ desired effect
 <body class="skin-blue sidebar-mini">
 <div class="wrapper">
 
-    @include('partials.mainheader')
+    @include('partials.residente.mainheader')
 
-    @include('partials.sidebar')
+    @include('partials.residente.sidebar')
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">

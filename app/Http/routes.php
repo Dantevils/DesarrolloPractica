@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
+Route::get('/', 'HomeController@index');
 
 Route::get('home', 'HomeController@index');
 
@@ -19,14 +19,17 @@ Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
-
 /*Ruta de prueba para la coneccion de datos con MySql*/
-Route::get('prueba','PruebaController@index');
+//Route::get('prueba','PruebaController@index');
 
 //Route::post('nuevopedido','PruebaController@mostarusuarios');
 
-Route::get('nuevopedido','NuevopedidoController@index');
+Route::get('nuevopedido','NuevopedidoController@index'); //OK
 
-Route::get('cubicacion/{cub_id}','NuevopedidoController@show');
+
+Route::get('cubicacion/{cub_id}','CubicacionController@show');
+
+
+
 
 Route::get('estadodepedido','EstadodepedidoController@index');
