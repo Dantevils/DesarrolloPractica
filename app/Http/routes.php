@@ -26,8 +26,16 @@ Route::controllers([
 
 Route::get('nuevopedido','NuevopedidoController@index'); //OK
 
+Route::get('insumos/{cub_id}','InsumoController@show');//OK
 
-Route::get('cubicacion/{cub_id}','CubicacionController@show');
+Route::get('compras','ComprasController@index');
+
+Route::get('status','StatuspedidoController@index');//Reload
+
+
+Route::post('lala/{cub_id}','InsumoController@store');
+
+
 
 
 

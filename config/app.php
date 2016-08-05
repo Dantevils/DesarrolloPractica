@@ -147,6 +147,7 @@ return [
 		'App\Providers\RouteServiceProvider',
 		
 		'Collective\Html\HtmlServiceProvider',
+		Laracasts\Flash\FlashServiceProvider::class,
 		// AdminLTE template provider
 		Acacha\AdminLTETemplateLaravel\app\Providers\AdminLTETemplateServiceProvider::class,
 
@@ -203,6 +204,7 @@ return [
 		'View'      => 'Illuminate\Support\Facades\View',
 		'Form' => Collective\Html\FormFacade::class,
 		'Html' => Collective\Html\HtmlFacade::class,
+		'Flash'=> Laracasts\Flash\Flash::class
 
 
 	],

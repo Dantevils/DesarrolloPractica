@@ -6,23 +6,24 @@ use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
-class User extends Model implements AuthenticatableContract, CanResetPasswordContract {
+class User extends Model implements AuthenticatableContract, CanResetPasswordContract
+{
 
 
 	use Authenticatable, CanResetPassword;
 
 	protected $table = 'users';
+	protected $primaryKey = 'id';
 
-	protected $fillable = ['name', 'email', 'password'];
+	protected $fillable = ['name', 'email', 'password', 'cc_id'];
 
 	protected $hidden = ['password', 'remember_token'];
 
 
-/*prublic public function Centro_costo()
-{
-	return $this->hasOne('App\Centro_costo');
-
-}*/
+	public function centro_costo()
+	{
+		return $this->belongsTo('App\Centro_costo', 'cc_id', 'cc_id');
+	}
 
 
 }

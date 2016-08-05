@@ -12,8 +12,17 @@ class Centro_costo extends Model {
     /*Campo de uso */
     protected $fillable = ['cc_id', 'cc_nombre', 'cc_nickname','cc_direccion','cc_estado'];
 
-   /*Campo oculto*/
-    //protected $hidden = ['password', 'remember_token'];
-
-
+    /*Un Centro de costo Puede tener 1 o N Usuarios*/
+    public function users(){
+        return $this->hasMany('App\User','cc_id', 'cc_id');
+    }
+    /*Un Centro de Costo esta en 1 o N */
+    public function trazamovimiento(){
+        return $this->belongsTo('App\Traza_movimiento','tra_id','tra_id');
+    }
+    /*Una a grupacion pertenece a 1 o N centros de costos*/
+    public function Agrupacion(){
+        return $this->belongsTo('App\Agrupacion','cc_id','cc_id');
+        
+    }
 }

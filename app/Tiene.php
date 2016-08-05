@@ -8,7 +8,7 @@ class Tiene extends Model {
     protected $table = 'tiene';
  
     /*Campo de uso */
-   // protected $primaryKey = 'sub_id';
+    protected $primaryKey = 'sub_id';
     protected $fillable = ['sub_id','cub_id'];
     /*Campo oculto*/
     //protected $hidden = ['password', 'remember_token'];

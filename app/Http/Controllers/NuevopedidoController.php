@@ -2,14 +2,13 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
 use Illuminate\Http\Request;
+
 use App\User;
 use App\Centro_costo;
-use App\Subpartida;
-use App\Cubicacion;
+use App\Partida;
+use App\Insumo;
 use App\Traza_movimiento;
-use App\Tiene;
 use phpDocumentor\Reflection\Types\This;
 
 class NuevopedidoController extends Controller {
@@ -18,13 +17,12 @@ class NuevopedidoController extends Controller {
 	{
 		$coc = new Centro_costo();
 		$user =  new User();
-		$subpartida = new Subpartida();
-		$tiene = new Tiene();
+		$partida = new Partida();
+
 	return view('partials.pedido.nuevopedido',
 		['coc'=>$coc::all(),
 		'user'=>$user::all(),
-		'subpartida'=>$subpartida::all(),
-		'tiene'=>$tiene::all()]);
+		'partida'=>$partida::all()]);
 	}
 
 	public function create()
@@ -74,7 +72,7 @@ class NuevopedidoController extends Controller {
 
 	public function show($cub_id)
 	{
-		$cub = new Cubicacion();
+		$cub = new Insumo();
 		$mov = new Traza_movimiento();
 		return view('partials.cubicacion',['cubicacions'=>$mov::all()]);
 		//$mov = new Traza_movimiento();

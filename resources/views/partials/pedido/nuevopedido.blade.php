@@ -27,25 +27,27 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Partida</th>
+                                    <th>Precio</th>
+                                    <th>Presupuesto</th>
                                     <th>Fecha Inicio</th>
                                     <th>Fecha Termino</th>
-                                    <th>Precio</th>
-                                    <th>Cantidad</th>
                                     <th>UM</th>
+                                    <th>Cantidad</th>
                                     <th>Accion</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($subpartida as $subpartida)
+                                @foreach($partida as $partida)
                                     <tr>
-                                        <td><a href="{{url('cubicacion',$subpartida->sub_id  )}}"><span>{!! $subpartida->sub_id!!}</span></a></td>
-                                        <td>{{$subpartida->sub_nombre}}</td>
-                                        <td>{{$subpartida->sub_fechaini}}</td>
-                                        <td>{{$subpartida->sub_fechaini}}</td> {{--$subpartida->sub_fechaini--}}
-                                        <td>{{$subpartida->sub_precio}}</td>
-                                        <td>{{$subpartida->sub_cantidad}}</td>
-                                        <td>{{$subpartida->sub_um}}</td>
-                                        <td><a href="{{url('cubicacion',$subpartida->sub_id)}}"><span class="label label-success">Ir</span></a></td>
+                                        <td><a href="{{url('insumos',$partida->par_id  )}}"><span>{!! $partida->par_id!!}</span></a></td>
+                                        <td>{{$partida->par_nombre}}</td>
+                                        <td><strong>$</strong>{{$partida->par_precio}}</td>
+                                        <td><strong>$</strong>{{$partida->par_pptovta}}</td>
+                                        <td>{{$partida->par_fechaini}}</td>
+                                        <td>{{$partida->par_fechaini}}</td> {{--$subpartida->sub_fechaini--}}
+                                        <td>{{$partida->par_um}}</td>
+                                        <td>{{$partida->par_cantidad}}</td>
+                                        <td><a href="{{url('insumos',$partida->par_id)}}"><span class="label label-success">Ir</span></a></td>
                                     </tr>
                                 @endforeach
                                 </tfoot>

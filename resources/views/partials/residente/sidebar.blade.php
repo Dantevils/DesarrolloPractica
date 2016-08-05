@@ -23,7 +23,7 @@
             <li class="treeview">
                 <a href="#"><i class='fa fa-link'></i> <span>Pedidos</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="#">Status</a></li>
+                    <li><a href="{{url('status')}}">Status</a></li>
                     <li><a href="{{url('nuevopedido')}}">Nuevo Pedido</a></li>
                 </ul>
             </li>

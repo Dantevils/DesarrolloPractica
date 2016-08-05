@@ -19,24 +19,25 @@
         </form>
         <ul class="sidebar-menu">
             <li class="header">COMPRAS</li> <!---PODRIAMOS CREAR UN YEILD PARA MOSTRAR EL TIPO DE CARGO LOGEADO-->
-            <li><a href="{{url('prueba')}}"><i class='fa fa-link'></i> <span>Mis Compromisos</span></a></li>
+
             <li class="treeview">
-                <a href="#"><i class='fa fa-link'></i> <span>Pedidos</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <a href="#"><i class='fa fa-link'></i> <span>Status</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="#">Status</a></li>
-                    <li><a href="{{url('nuevopedido')}}">Nuevo Pedido</a></li>
+                    <li><a href="#">Status de pedido</a></li>
+                    <li><a href="{{url('nuevopedido')}}">OdeC emitidas</a></li>
                 </ul>
             </li>
+            <li><a href="{{url('prueba')}}"><i class='fa fa-link'></i> <span>Nueva Orden de Compra</span></a></li>
             <li class="treeview">
-                <a href="#"><i class='fa fa-link'></i> <span>Recursos Humanos</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <a href="#"><i class='fa fa-link'></i> <span>Descargas</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="#">Control Diario</a></li>
-                    <li><a href="#">Solicitud de Empleo</a></li>
-                    <li><a href="#">Trateros</a></li>
-                    <li><a href="#">Subcontratos</a></li>
+                    <li><a href="#">Pedidos</a></li>
+                    <li><a href="#">ODEC & Rececpcion</a></li>
+                    <li><a href="#">Avances</a></li>
+                    <li><a href="#">Inventarios</a></li>
                 </ul>
             </li>
-            <li><a href="{{url('home')}}"><i class='fa fa-link'></i> <span>Avance de Obra</span></a></li>
+
         </ul>
     </section>
 </aside>

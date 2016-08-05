@@ -4,18 +4,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class avance extends Model {
 
-	//Modelo avance
+	//Modelo avance Mysql
     protected $table = 'avance';
-
-    //Declaracion de Clave Primaria
     protected $primaryKey = 'ava_id';
-
-    /*Campo de uso */
     protected $fillable = ['ava_id', 'ava_acumuladoanterior', 'ava_diario','ava_historico','ava_fechahist','ava_avancefechante','sub_id'];
 
-    /*Campo oculto*/
-    //protected $hidden = ['password', 'remember_token'];
-
-
-
+    public function partida(){
+        return $this->belongsTo('App\partida','par_id','par_id');
+    }
 }

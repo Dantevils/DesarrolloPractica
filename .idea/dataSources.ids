@@ -13,424 +13,480 @@
       <table id="4" parent="1" name="users"/>
       <table id="5" parent="1" name="avance"/>
       <table id="6" parent="1" name="centro_costo"/>
-      <table id="7" parent="1" name="cubicacion"/>
-      <table id="8" parent="1" name="partida"/>
-      <table id="9" parent="1" name="proveedor"/>
-      <table id="10" parent="1" name="subpartida"/>
-      <table id="11" parent="1" name="tiene"/>
-      <table id="12" parent="1" name="traza_movimiento"/>
-      <column id="13" parent="2" name="migration">
+      <table id="7" parent="1" name="partida"/>
+      <table id="8" parent="1" name="proveedor"/>
+      <table id="9" parent="1" name="traza_movimiento"/>
+      <table id="10" parent="1" name="agrupacion"/>
+      <table id="11" parent="1" name="insumo"/>
+      <column id="12" parent="2" name="migration">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="14" parent="2" name="batch">
+      <column id="13" parent="2" name="batch">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="15" parent="3" name="email">
+      <column id="14" parent="3" name="email">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="16" parent="3" name="token">
+      <column id="15" parent="3" name="token">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="17" parent="3" name="created_at">
+      <column id="16" parent="3" name="created_at">
         <mandatory>1</mandatory>
         <data-type>timestamp</data-type>
         <default-expression>&apos;0000-00-00 00:00:00&apos;</default-expression>
       </column>
-      <index id="18" parent="3" name="password_resets_email_index">
+      <index id="17" parent="3" name="password_resets_email_index">
         <columns>email</columns>
         <desc-columns></desc-columns>
       </index>
-      <index id="19" parent="3" name="password_resets_token_index">
+      <index id="18" parent="3" name="password_resets_token_index">
         <columns>token</columns>
         <desc-columns></desc-columns>
       </index>
-      <column id="20" parent="4" name="id">
+      <column id="19" parent="4" name="id">
         <mandatory>1</mandatory>
         <data-type>int(10) unsigned</data-type>
         <sequence-identity>1</sequence-identity>
       </column>
-      <column id="21" parent="4" name="name">
+      <column id="20" parent="4" name="name">
         <mandatory>1</mandatory>
         <data-type>varchar(150)</data-type>
       </column>
-      <column id="22" parent="4" name="email">
+      <column id="21" parent="4" name="email">
         <mandatory>1</mandatory>
         <data-type>varchar(100)</data-type>
       </column>
-      <column id="23" parent="4" name="egerarquico">
+      <column id="22" parent="4" name="egerarquico">
         <mandatory>1</mandatory>
         <data-type>varchar(100)</data-type>
       </column>
-      <column id="24" parent="4" name="cargo">
+      <column id="23" parent="4" name="cargo">
         <mandatory>1</mandatory>
         <data-type>varchar(100)</data-type>
       </column>
-      <column id="25" parent="4" name="telefono">
+      <column id="24" parent="4" name="telefono">
         <mandatory>1</mandatory>
         <data-type>varchar(100)</data-type>
       </column>
-      <column id="26" parent="4" name="password">
+      <column id="25" parent="4" name="password">
         <mandatory>1</mandatory>
         <data-type>varchar(60)</data-type>
       </column>
-      <column id="27" parent="4" name="cc_id">
+      <column id="26" parent="4" name="cc_id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="28" parent="4" name="remember_token">
+      <column id="27" parent="4" name="remember_token">
         <data-type>varchar(100)</data-type>
       </column>
-      <column id="29" parent="4" name="created_at">
+      <column id="28" parent="4" name="created_at">
         <mandatory>1</mandatory>
         <data-type>timestamp</data-type>
         <default-expression>&apos;0000-00-00 00:00:00&apos;</default-expression>
       </column>
-      <column id="30" parent="4" name="updated_at">
+      <column id="29" parent="4" name="updated_at">
         <mandatory>1</mandatory>
         <data-type>timestamp</data-type>
         <default-expression>&apos;0000-00-00 00:00:00&apos;</default-expression>
       </column>
-      <index id="31" parent="4" name="users_cc_id_foreign">
+      <index id="30" parent="4" name="users_cc_id_foreign">
         <columns>cc_id</columns>
         <desc-columns></desc-columns>
       </index>
-      <index id="32" parent="4" name="users_email_unique">
+      <index id="31" parent="4" name="users_email_unique">
         <columns>email</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
-      <index id="33" parent="4" name="users_id_unique">
+      <index id="32" parent="4" name="users_id_unique">
         <columns>id</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
-      <key id="34" parent="4" name="PRIMARY">
+      <key id="33" parent="4" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <key id="35" parent="4" name="users_email_unique">
+      <key id="34" parent="4" name="users_email_unique">
         <columns>email</columns>
         <underlying-index>users_email_unique</underlying-index>
       </key>
-      <key id="36" parent="4" name="users_id_unique">
+      <key id="35" parent="4" name="users_id_unique">
         <columns>id</columns>
         <underlying-index>users_id_unique</underlying-index>
       </key>
-      <foreign-key id="37" parent="4" name="users_cc_id_foreign">
+      <foreign-key id="36" parent="4" name="users_cc_id_foreign">
         <columns>cc_id</columns>
         <ref-key>~.centro_costo.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <column id="38" parent="5" name="ava_id">
+      <column id="37" parent="5" name="ava_id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
         <sequence-identity>1</sequence-identity>
       </column>
-      <column id="39" parent="5" name="ava_acumuladoanterior">
+      <column id="38" parent="5" name="ava_acumuladoanterior">
         <data-type>int(11)</data-type>
       </column>
-      <column id="40" parent="5" name="ava_diario">
+      <column id="39" parent="5" name="ava_diario">
         <data-type>int(11)</data-type>
       </column>
-      <column id="41" parent="5" name="ava_historico">
+      <column id="40" parent="5" name="ava_historico">
         <data-type>int(11)</data-type>
       </column>
-      <column id="42" parent="5" name="ava_fechahist">
+      <column id="41" parent="5" name="ava_fechahist">
         <data-type>date</data-type>
       </column>
-      <column id="43" parent="5" name="ava_avancefechante">
+      <column id="42" parent="5" name="ava_avancefechante">
         <data-type>date</data-type>
       </column>
-      <column id="44" parent="5" name="sub_id">
+      <column id="43" parent="5" name="par_id">
         <data-type>int(11)</data-type>
       </column>
-      <index id="45" parent="5" name="sub_id">
-        <columns>sub_id</columns>
+      <column id="44" parent="5" name="created_at">
+        <mandatory>1</mandatory>
+        <data-type>timestamp</data-type>
+        <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
+      </column>
+      <column id="45" parent="5" name="updated_at">
+        <mandatory>1</mandatory>
+        <data-type>timestamp</data-type>
+        <default-expression>&apos;0000-00-00 00:00:00&apos;</default-expression>
+      </column>
+      <index id="46" parent="5" name="par_id">
+        <columns>par_id</columns>
         <desc-columns></desc-columns>
       </index>
-      <key id="46" parent="5" name="PRIMARY">
+      <key id="47" parent="5" name="PRIMARY">
         <columns>ava_id</columns>
         <primary>1</primary>
       </key>
-      <foreign-key id="47" parent="5" name="avance_ibfk_1">
-        <columns>sub_id</columns>
-        <ref-key>~.subpartida.PRIMARY</ref-key>
-        <cascade-update-rule>restrict</cascade-update-rule>
-        <cascade-delete-rule>restrict</cascade-delete-rule>
-      </foreign-key>
-      <column id="48" parent="6" name="cc_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-        <sequence-identity>1</sequence-identity>
-      </column>
-      <column id="49" parent="6" name="cc_nombre">
-        <data-type>varchar(100)</data-type>
-      </column>
-      <column id="50" parent="6" name="cc_nickname">
-        <data-type>varchar(100)</data-type>
-      </column>
-      <column id="51" parent="6" name="cc_direccion">
-        <data-type>varchar(200)</data-type>
-      </column>
-      <column id="52" parent="6" name="cc_estado">
-        <data-type>tinyint(1)</data-type>
-      </column>
-      <key id="53" parent="6" name="PRIMARY">
-        <columns>cc_id</columns>
-        <primary>1</primary>
-      </key>
-      <column id="54" parent="7" name="cub_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-        <sequence-identity>1</sequence-identity>
-      </column>
-      <column id="55" parent="7" name="cub_material">
-        <data-type>varchar(256)</data-type>
-      </column>
-      <column id="56" parent="7" name="cub_um">
-        <data-type>varchar(30)</data-type>
-      </column>
-      <column id="57" parent="7" name="cub_cantidad">
-        <data-type>float</data-type>
-      </column>
-      <column id="58" parent="7" name="cub_precio">
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="59" parent="7" name="cub_total">
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="60" parent="7" name="cub_tipo">
-        <data-type>varchar(30)</data-type>
-      </column>
-      <key id="61" parent="7" name="PRIMARY">
-        <columns>cub_id</columns>
-        <primary>1</primary>
-      </key>
-      <column id="62" parent="8" name="par_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-        <sequence-identity>1</sequence-identity>
-      </column>
-      <column id="63" parent="8" name="par_nombre">
-        <data-type>varchar(256)</data-type>
-      </column>
-      <column id="64" parent="8" name="par_fechaini">
-        <data-type>date</data-type>
-      </column>
-      <column id="65" parent="8" name="par_fechater">
-        <data-type>date</data-type>
-      </column>
-      <column id="66" parent="8" name="par_um">
-        <data-type>varchar(30)</data-type>
-      </column>
-      <column id="67" parent="8" name="par_cantidad">
-        <data-type>float</data-type>
-      </column>
-      <column id="68" parent="8" name="par_precioventa">
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="69" parent="8" name="par_preciocosto">
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="70" parent="8" name="par_totalavancedinero">
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="71" parent="8" name="par_totalavancepor">
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="72" parent="8" name="cc_id">
-        <data-type>int(11)</data-type>
-      </column>
-      <index id="73" parent="8" name="cc_id">
-        <columns>cc_id</columns>
-        <desc-columns></desc-columns>
-      </index>
-      <key id="74" parent="8" name="PRIMARY">
-        <columns>par_id</columns>
-        <primary>1</primary>
-      </key>
-      <foreign-key id="75" parent="8" name="partida_ibfk_1">
-        <columns>cc_id</columns>
-        <ref-key>~.centro_costo.PRIMARY</ref-key>
-        <cascade-update-rule>restrict</cascade-update-rule>
-        <cascade-delete-rule>restrict</cascade-delete-rule>
-      </foreign-key>
-      <column id="76" parent="9" name="pro_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-        <sequence-identity>1</sequence-identity>
-      </column>
-      <column id="77" parent="9" name="pro_nombre">
-        <data-type>varchar(200)</data-type>
-      </column>
-      <column id="78" parent="9" name="pro_rut">
-        <data-type>varchar(50)</data-type>
-      </column>
-      <column id="79" parent="9" name="pro_contacto">
-        <data-type>varchar(100)</data-type>
-      </column>
-      <column id="80" parent="9" name="pro_telefono">
-        <data-type>varchar(30)</data-type>
-      </column>
-      <column id="81" parent="9" name="pro_celular">
-        <data-type>varchar(30)</data-type>
-      </column>
-      <column id="82" parent="9" name="pro_email">
-        <data-type>varchar(100)</data-type>
-      </column>
-      <key id="83" parent="9" name="PRIMARY">
-        <columns>pro_id</columns>
-        <primary>1</primary>
-      </key>
-      <column id="84" parent="10" name="sub_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-        <sequence-identity>1</sequence-identity>
-      </column>
-      <column id="85" parent="10" name="sub_nombre">
-        <data-type>varchar(256)</data-type>
-      </column>
-      <column id="86" parent="10" name="sub_fechaini">
-        <data-type>date</data-type>
-      </column>
-      <column id="87" parent="10" name="sub_fechater">
-        <data-type>date</data-type>
-      </column>
-      <column id="88" parent="10" name="sub_precio">
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="89" parent="10" name="sub_cantidad">
-        <data-type>float</data-type>
-      </column>
-      <column id="90" parent="10" name="sub_um">
-        <data-type>varchar(30)</data-type>
-      </column>
-      <column id="91" parent="10" name="par_id">
-        <data-type>int(11)</data-type>
-      </column>
-      <index id="92" parent="10" name="par_id">
-        <columns>par_id</columns>
-        <desc-columns></desc-columns>
-      </index>
-      <key id="93" parent="10" name="PRIMARY">
-        <columns>sub_id</columns>
-        <primary>1</primary>
-      </key>
-      <foreign-key id="94" parent="10" name="subpartida_ibfk_1">
+      <foreign-key id="48" parent="5" name="avance_ibfk_1">
         <columns>par_id</columns>
         <ref-key>~.partida.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <column id="95" parent="11" name="cub_id">
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="96" parent="11" name="sub_id">
-        <data-type>int(11)</data-type>
-      </column>
-      <index id="97" parent="11" name="cub_id">
-        <columns>cub_id</columns>
-        <desc-columns></desc-columns>
-      </index>
-      <index id="98" parent="11" name="sub_id">
-        <columns>sub_id</columns>
-        <desc-columns></desc-columns>
-      </index>
-      <foreign-key id="99" parent="11" name="tiene_ibfk_1">
-        <columns>cub_id</columns>
-        <ref-key>~.cubicacion.PRIMARY</ref-key>
-        <cascade-update-rule>restrict</cascade-update-rule>
-        <cascade-delete-rule>restrict</cascade-delete-rule>
-      </foreign-key>
-      <foreign-key id="100" parent="11" name="tiene_ibfk_2">
-        <columns>sub_id</columns>
-        <ref-key>~.subpartida.PRIMARY</ref-key>
-        <cascade-update-rule>restrict</cascade-update-rule>
-        <cascade-delete-rule>restrict</cascade-delete-rule>
-      </foreign-key>
-      <column id="101" parent="12" name="tra_id">
+      <column id="49" parent="6" name="cc_id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
         <sequence-identity>1</sequence-identity>
       </column>
-      <column id="102" parent="12" name="tra_odecerp">
-        <data-type>varchar(256)</data-type>
-      </column>
-      <column id="103" parent="12" name="tra_fechasugerida">
-        <data-type>date</data-type>
-      </column>
-      <column id="104" parent="12" name="tra_materiales">
-        <data-type>varchar(200)</data-type>
-      </column>
-      <column id="105" parent="12" name="tra_tipo">
+      <column id="50" parent="6" name="cc_nombre">
         <data-type>varchar(100)</data-type>
       </column>
-      <column id="106" parent="12" name="tra_estatus">
-        <data-type>int(11)</data-type>
+      <column id="51" parent="6" name="cc_nickname">
+        <data-type>varchar(100)</data-type>
       </column>
-      <column id="107" parent="12" name="tra_fecha">
-        <data-type>date</data-type>
-      </column>
-      <column id="108" parent="12" name="tra_cantidad">
-        <data-type>float</data-type>
-      </column>
-      <column id="109" parent="12" name="tra_precio">
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="110" parent="12" name="tra_um">
-        <data-type>varchar(30)</data-type>
-      </column>
-      <column id="111" parent="12" name="tra_numero">
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="112" parent="12" name="tra_nomdocumento">
+      <column id="52" parent="6" name="cc_direccion">
         <data-type>varchar(200)</data-type>
       </column>
-      <column id="113" parent="12" name="pro_id">
+      <column id="53" parent="6" name="cc_estado">
+        <data-type>tinyint(1)</data-type>
+      </column>
+      <column id="54" parent="6" name="created_at">
+        <mandatory>1</mandatory>
+        <data-type>timestamp</data-type>
+        <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
+      </column>
+      <column id="55" parent="6" name="updated_at">
+        <mandatory>1</mandatory>
+        <data-type>timestamp</data-type>
+        <default-expression>&apos;0000-00-00 00:00:00&apos;</default-expression>
+      </column>
+      <key id="56" parent="6" name="PRIMARY">
+        <columns>cc_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="57" parent="7" name="par_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="58" parent="7" name="par_nombre">
+        <data-type>varchar(256)</data-type>
+      </column>
+      <column id="59" parent="7" name="par_fechaini">
+        <data-type>date</data-type>
+      </column>
+      <column id="60" parent="7" name="par_fechater">
+        <data-type>date</data-type>
+      </column>
+      <column id="61" parent="7" name="par_precio">
         <data-type>int(11)</data-type>
       </column>
-      <column id="114" parent="12" name="sub_id">
+      <column id="62" parent="7" name="par_cantidad">
+        <data-type>float</data-type>
+      </column>
+      <column id="63" parent="7" name="par_um">
+        <data-type>varchar(30)</data-type>
+      </column>
+      <column id="64" parent="7" name="agr_id">
         <data-type>int(11)</data-type>
       </column>
-      <column id="115" parent="12" name="cc_id">
+      <column id="65" parent="7" name="created_at">
+        <mandatory>1</mandatory>
+        <data-type>timestamp</data-type>
+        <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
+      </column>
+      <column id="66" parent="7" name="updated_at">
+        <mandatory>1</mandatory>
+        <data-type>timestamp</data-type>
+        <default-expression>&apos;0000-00-00 00:00:00&apos;</default-expression>
+      </column>
+      <index id="67" parent="7" name="agr_id">
+        <columns>agr_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="68" parent="7" name="PRIMARY">
+        <columns>par_id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="69" parent="7" name="partida_ibfk_1">
+        <columns>agr_id</columns>
+        <ref-key>~.agrupacion.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="70" parent="8" name="pro_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="71" parent="8" name="pro_nombre">
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="72" parent="8" name="pro_rut">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="73" parent="8" name="pro_contacto">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="74" parent="8" name="pro_telefono">
+        <data-type>varchar(30)</data-type>
+      </column>
+      <column id="75" parent="8" name="pro_celular">
+        <data-type>varchar(30)</data-type>
+      </column>
+      <column id="76" parent="8" name="pro_email">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="77" parent="8" name="created_at">
+        <mandatory>1</mandatory>
+        <data-type>timestamp</data-type>
+        <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
+      </column>
+      <column id="78" parent="8" name="updated_at">
+        <mandatory>1</mandatory>
+        <data-type>timestamp</data-type>
+        <default-expression>&apos;0000-00-00 00:00:00&apos;</default-expression>
+      </column>
+      <key id="79" parent="8" name="PRIMARY">
+        <columns>pro_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="80" parent="9" name="tra_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="81" parent="9" name="tra_odecerp">
+        <data-type>varchar(256)</data-type>
+      </column>
+      <column id="82" parent="9" name="tra_fechasugerida">
+        <data-type>date</data-type>
+      </column>
+      <column id="83" parent="9" name="tra_materiales">
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="84" parent="9" name="tra_tipo">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="85" parent="9" name="tra_estatus">
         <data-type>int(11)</data-type>
       </column>
-      <index id="116" parent="12" name="cc_id">
+      <column id="86" parent="9" name="tra_fecha">
+        <data-type>date</data-type>
+      </column>
+      <column id="87" parent="9" name="tra_cantidad">
+        <data-type>float</data-type>
+      </column>
+      <column id="88" parent="9" name="tra_precio">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="89" parent="9" name="tra_um">
+        <data-type>varchar(30)</data-type>
+      </column>
+      <column id="90" parent="9" name="tra_numero">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="91" parent="9" name="tra_nomdocumento">
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="92" parent="9" name="pro_id">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="93" parent="9" name="par_id">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="94" parent="9" name="cc_id">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="95" parent="9" name="created_at">
+        <mandatory>1</mandatory>
+        <data-type>timestamp</data-type>
+        <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
+      </column>
+      <column id="96" parent="9" name="updated_at">
+        <mandatory>1</mandatory>
+        <data-type>timestamp</data-type>
+        <default-expression>&apos;0000-00-00 00:00:00&apos;</default-expression>
+      </column>
+      <index id="97" parent="9" name="cc_id">
         <columns>cc_id</columns>
         <desc-columns></desc-columns>
       </index>
-      <index id="117" parent="12" name="pro_id">
+      <index id="98" parent="9" name="par_id">
+        <columns>par_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="99" parent="9" name="pro_id">
         <columns>pro_id</columns>
         <desc-columns></desc-columns>
       </index>
-      <index id="118" parent="12" name="sub_id">
-        <columns>sub_id</columns>
-        <desc-columns></desc-columns>
-      </index>
-      <key id="119" parent="12" name="PRIMARY">
+      <key id="100" parent="9" name="PRIMARY">
         <columns>tra_id</columns>
         <primary>1</primary>
       </key>
-      <foreign-key id="120" parent="12" name="traza_movimiento_ibfk_1">
+      <foreign-key id="101" parent="9" name="traza_movimiento_ibfk_1">
         <columns>pro_id</columns>
         <ref-key>~.proveedor.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <foreign-key id="121" parent="12" name="traza_movimiento_ibfk_2">
-        <columns>sub_id</columns>
-        <ref-key>dantevils.subpartida(par_id)</ref-key>
+      <foreign-key id="102" parent="9" name="traza_movimiento_ibfk_2">
+        <columns>par_id</columns>
+        <ref-key>~.partida.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <foreign-key id="122" parent="12" name="traza_movimiento_ibfk_3">
+      <foreign-key id="103" parent="9" name="traza_movimiento_ibfk_3">
         <columns>cc_id</columns>
         <ref-key>~.centro_costo.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="104" parent="10" name="agr_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="105" parent="10" name="agr_nombre">
+        <data-type>varchar(256)</data-type>
+      </column>
+      <column id="106" parent="10" name="agr_fechaini">
+        <data-type>date</data-type>
+      </column>
+      <column id="107" parent="10" name="agr_fechater">
+        <data-type>date</data-type>
+      </column>
+      <column id="108" parent="10" name="agr_um">
+        <data-type>varchar(30)</data-type>
+      </column>
+      <column id="109" parent="10" name="agr_cantidad">
+        <data-type>float</data-type>
+      </column>
+      <column id="110" parent="10" name="agr_precioventa">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="111" parent="10" name="agr_preciocosto">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="112" parent="10" name="agr_totalavancedinero">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="113" parent="10" name="agr_totalavancepor">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="114" parent="10" name="cc_id">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="115" parent="10" name="created_at">
+        <mandatory>1</mandatory>
+        <data-type>timestamp</data-type>
+        <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
+      </column>
+      <column id="116" parent="10" name="updated_at">
+        <mandatory>1</mandatory>
+        <data-type>timestamp</data-type>
+        <default-expression>&apos;0000-00-00 00:00:00&apos;</default-expression>
+      </column>
+      <index id="117" parent="10" name="cc_id">
+        <columns>cc_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="118" parent="10" name="PRIMARY">
+        <columns>agr_id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="119" parent="10" name="agrupacion_ibfk_1">
+        <columns>cc_id</columns>
+        <ref-key>~.centro_costo.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="120" parent="11" name="ins_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="121" parent="11" name="ins_material">
+        <data-type>varchar(256)</data-type>
+      </column>
+      <column id="122" parent="11" name="ins_um">
+        <data-type>varchar(30)</data-type>
+      </column>
+      <column id="123" parent="11" name="ins_cantidad">
+        <data-type>float</data-type>
+      </column>
+      <column id="124" parent="11" name="ins_precio">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="125" parent="11" name="ins_total">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="126" parent="11" name="ins_tipo">
+        <data-type>varchar(30)</data-type>
+      </column>
+      <column id="127" parent="11" name="created_at">
+        <mandatory>1</mandatory>
+        <data-type>timestamp</data-type>
+        <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
+      </column>
+      <column id="128" parent="11" name="updated_at">
+        <mandatory>1</mandatory>
+        <data-type>timestamp</data-type>
+        <default-expression>&apos;0000-00-00 00:00:00&apos;</default-expression>
+      </column>
+      <column id="129" parent="11" name="par_id">
+        <data-type>int(11)</data-type>
+      </column>
+      <index id="130" parent="11" name="par_id">
+        <columns>par_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="131" parent="11" name="PRIMARY">
+        <columns>ins_id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="132" parent="11" name="insumo_ibfk_1">
+        <columns>par_id</columns>
+        <ref-key>~.partida.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>

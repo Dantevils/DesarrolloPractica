@@ -10,10 +10,10 @@ class Proveedor extends Model {
     protected $primaryKey = 'pro_id';
     /*Campo de uso */
     protected $fillable = ['pro_id','pro_nombre','pro_rut','pro_contacto','pro_telefono','pro_celular','pro_email'];
-    /*Campo oculto*/
-    //protected $hidden = ['password', 'remember_token'];
 
-
-
+    /*Un proveedor pertenese a 1 o varias traza_movimiento*/
+    public function trazamovimiento(){
+        return $this->belongsTo('App\Traza_movimiento','tra_id','tra_id');
+    }
 
 }
