@@ -22,7 +22,7 @@
                     </div>
                 </form>
                 <div class="box-body">
-                    <table id="example1" class="table table-bordered table-striped">
+                    <table id="status" class="table table-bordered table-striped">
                         <thead>
                         <tr>
                             <th>N°Pedido</th>
@@ -40,7 +40,7 @@
                         <tbody>
                         @foreach($mov as $status)
                             <tr>
-                                <td>{{$status->tra_numero}}</td>
+                                <td WIDTH="10">{{$status->tra_numero}}</td>
                                 <td>{{$status->tra_fecha}}</td>
                                 <td>{{$status->tra_fechasugerida}}</td>
                                 <td>{{$status->tra_um}}</td>
@@ -50,7 +50,6 @@
                                 <td> </td><!--Falta Cantidad de Orden de compra-->
                                 <td>{{$status->tra_nomdocumento}}</td>
                                 <td> </td><!--Falta Pendiente en Obra-->
-                                <td><a><span class="label label-warning">PED</span></a></td>
                             </tr>
                         @endforeach
                         </tfoot>

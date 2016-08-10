@@ -19,7 +19,7 @@ class Traza_movimiento extends Model {
 
     /*Traza_movimiento Puede tener 1 a N Partidas*/
     public function partidas(){
-        return $this->hasMany('App\Partida','tra_id','tra_id');
+        return $this->hasMany('App\Partida','par_id','tra_id');
     }
 
     /*Traza_movimiento puede tener 1 a N Partidas*/

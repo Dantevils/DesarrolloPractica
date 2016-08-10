@@ -1,21 +1,19 @@
 <?php namespace App\Http\Controllers;
 
-use App\Centro_costo;
-use App\Traza_movimiento;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Partida;
+use App\Traza_movimiento;
 
 use Illuminate\Http\Request;
 
-class StatuspedidoController extends Controller {
+class ComprasStatusPedidoController extends Controller {
 
 	public function index()
 	{
-		$mov =  Traza_movimiento::all();
-		//	return view('partials.nuevopedido',['coc'=>Centro_costo::all(),'user' => User::all(),'subpartida'=>Subpartida::all()]);
-		$coc =  Centro_costo::all();
-		
-		return view('partials.pedido.statuspedido',['mov'=>$mov,'coc'=>$coc]);
+		$traza = Traza_movimiento::all();
+		$partida = Partida::all();
+		return view('partials.compras.statuspedido',['traza'=>$traza,'partida'=>$partida]);
 	}
 
 	/**
@@ -44,7 +42,7 @@ class StatuspedidoController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show() //$id
+	public function show($id)
 	{
 		//
 	}

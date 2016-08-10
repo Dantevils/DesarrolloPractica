@@ -1,6 +1,7 @@
 <?php namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use Illuminate\Support\Facades\App;
 
 class Kernel extends HttpKernel {
 
@@ -27,6 +28,13 @@ class Kernel extends HttpKernel {
 		'auth' => 'App\Http\Middleware\Authenticate',
 		'auth.basic' => 'Illuminate\Auth\Middleware\AuthenticateWithBasicAuth',
 		'guest' => 'App\Http\Middleware\RedirectIfAuthenticated',
+
+		'residente'=>'App\Http\Middleware\Residente',
+		'bodegero'=>'App\Http\Middleware\Bodegero',
+		'compras'=>'App\Http\Middleware\Compras',
+		'supervisor'=>'App\Http\Middleware\supervisor',
+
+
 	];
 
 }

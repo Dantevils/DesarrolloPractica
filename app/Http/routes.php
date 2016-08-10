@@ -19,6 +19,46 @@ Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
+/*
+Desarrollo de Grupo de rutas para la autentificacion de Tipo de usuarios
+ */
+
+//Residente
+Route::group(
+	['middleware'=>['auth','Residente'],'prefix'=>'res'],function(){
+	Route::get('/',function(){
+		return view('#');
+	});
+	}
+);
+
+//Bodegero
+Route::group(
+	['middleware'=>['auth','Bodegero'],'prefix'=>'bod'],function(){
+	Route::get('/',function(){
+		return view('#');
+	});
+}
+);
+
+//Compras
+Route::group(
+	['middleware'=>['auth','Compras'],'prefix'=>'com'],function(){
+	Route::get('/',function(){
+		return view('compras');
+	});
+}
+);
+
+//Supervisor
+Route::group(
+	['middleware'=>['auth','Supervisor'],'prefix'=>'Sup'],function(){
+	Route::get('/',function(){
+		return view('#');
+	});
+}
+);
+
 /*Ruta de prueba para la coneccion de datos con MySql*/
 //Route::get('prueba','PruebaController@index');
 
@@ -28,7 +68,9 @@ Route::get('nuevopedido','NuevopedidoController@index'); //OK
 
 Route::get('insumos/{cub_id}','InsumoController@show');//OK
 
-Route::get('compras','ComprasController@index');
+Route::get('statuspedido','ComprasStatusPedidoController@index');//ok
+
+Route::get('odecemitidas','OdecEmitidasController@index');
 
 Route::get('status','StatuspedidoController@index');//Reload
 

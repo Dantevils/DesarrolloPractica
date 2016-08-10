@@ -1,28 +1,31 @@
 <?php namespace App\Http\Controllers;
 
 use App\Centro_costo;
-use App\Traza_movimiento;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use App\Traza_movimiento;
+use App\Partida;
+use App\Proveedor;
 
-class StatuspedidoController extends Controller {
 
-	public function index()
-	{
-		$mov =  Traza_movimiento::all();
-		//	return view('partials.nuevopedido',['coc'=>Centro_costo::all(),'user' => User::all(),'subpartida'=>Subpartida::all()]);
-		$coc =  Centro_costo::all();
-		
-		return view('partials.pedido.statuspedido',['mov'=>$mov,'coc'=>$coc]);
-	}
+class OdecEmitidasController extends Controller {
 
 	/**
-	 * Show the form for creating a new resource.
+	 * Display a listing of the resource.
 	 *
 	 * @return Response
 	 */
+	public function index()
+	{
+		$traza = Traza_movimiento::all();
+		$partida = Partida::all();
+		$proveedor = Proveedor::all();
+		$cc = Centro_costo::all();
+		return view('partials.compras.odecemitidas',['traza'=>$traza,'partida'=>$partida, 'proveedor'=>$proveedor,'cc'=>$cc]);
+	}
+
 	public function create()
 	{
 		//
@@ -44,7 +47,7 @@ class StatuspedidoController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show() //$id
+	public function show($id)
 	{
 		//
 	}

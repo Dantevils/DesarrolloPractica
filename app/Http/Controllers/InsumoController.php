@@ -98,9 +98,11 @@ class InsumoController extends Controller {
 			}
 		}
 		if ( Traza_movimiento::all()->max('tra_numero') == $mov) {
+
 			Flash('Su pedido se a realizado satisfactoriamente', 'success')->important();
 		}else{
 			Flash('No se a podido crear su pedido', 'warning')->important();
+
 		}
 		return redirect()->route('home');
 
@@ -112,7 +114,7 @@ class InsumoController extends Controller {
 	{//$data = Subpartida::find($id)->cubicacions();
 	//If(variables vacias retornar nada-> asi solo mostrara los datos de los items a agregar)
 		$partida = new Partida();
-
+		
 
 
 		return view('partials.pedido.insumos',

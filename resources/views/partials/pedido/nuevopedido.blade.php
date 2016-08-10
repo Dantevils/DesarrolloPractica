@@ -7,10 +7,11 @@
     @include('partials.residente.sidebar') <!--sidebar2-->
     <div class="content-wrapper">
         @include('partials.contentheader')
+
         <section class="content">
                     <div class="box">
                         <div class="box-header">
-                            <h3 class="box-title">Nuevo Pedido</h3>
+                            <h3 class="box-title">Nuevo Pedido </h3>
                         </div>
                         <form action="#" method="get" class="sidebar-form">
                             <div class="input-group">
@@ -27,12 +28,12 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Partida</th>
-                                    <th>Precio</th>
-                                    <th>Presupuesto</th>
                                     <th>Fecha Inicio</th>
                                     <th>Fecha Termino</th>
-                                    <th>UM</th>
-                                    <th>Cantidad</th>
+                                    <th>UM PPTO</th>
+                                    <th>Cantidad PPTO</th>
+                                    <th>Presupuesto</th>
+                                    <th>Ocupado</th>
                                     <th>Accion</th>
                                 </tr>
                                 </thead>
@@ -41,12 +42,12 @@
                                     <tr>
                                         <td><a href="{{url('insumos',$partida->par_id  )}}"><span>{!! $partida->par_id!!}</span></a></td>
                                         <td>{{$partida->par_nombre}}</td>
-                                        <td><strong>$</strong>{{$partida->par_precio}}</td>
-                                        <td><strong>$</strong>{{$partida->par_pptovta}}</td>
-                                        <td>{{$partida->par_fechaini}}</td>
-                                        <td>{{$partida->par_fechaini}}</td> {{--$subpartida->sub_fechaini--}}
+                                        <td>{!!  $partida->par_fechaini!!}</td>
+                                        <td>{{ $partida->par_fechater}}</td> <!---\Carbon\Carbon::today()->addWeek(1)->toDateString()-->
                                         <td>{{$partida->par_um}}</td>
                                         <td>{{$partida->par_cantidad}}</td>
+                                        <td><strong>$</strong>{{$partida->par_pptovta}}</td>
+                                        <td><strong>$</strong>{{$partida->par_precio}}</td>
                                         <td><a href="{{url('insumos',$partida->par_id)}}"><span class="label label-success">Ir</span></a></td>
                                     </tr>
                                 @endforeach
